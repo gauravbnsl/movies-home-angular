@@ -1,0 +1,54 @@
+<div
+  style="
+    height: 500px;
+    color: wheat;
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+  "
+>
+  <div class="directional-arrow" (click)="setActiveIndex(-1)"><</div>
+  <!-- [@openClose]="isOpen ? 'open' : 'closed'" -->
+  <ng-container *ngFor="let item of searchResult; index as i">
+    <div
+      *ngIf="i === activeIndex"
+      @slideInOut
+      style="
+        display: flex;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 16px;
+      "
+    >
+      <div class="movie-description">
+        <div style="font-size: 36px; font-weight: 500; margin-bottom: 32px">
+          <strong>{{ item.Title }}</strong>
+        </div>
+        <div style="margin-bottom: 32px">
+          {{ item.Language }} &nbsp; &bull; &nbsp;
+          {{ item.Genre }}
+        </div>
+        <div style="margin-bottom: 32px">
+          Released: {{ item.Released | dateFormat }}
+        </div>
+        <div class="movie-plot">
+          {{ item.Plot }}
+        </div>
+      </div>
+      <a
+        href="{{ 'https://www.imdb.com/title/' + item.imdbID }}"
+        target="_blank"
+      >
+        <img
+          [src]="item?.Poster"
+          height="100%"
+          width="350px"
+          class="movie-poster"
+          alt="Movie Poster "
+        />
+      </a>
+    </div>
+  </ng-container>
+  <div class="directional-arrow" (click)="setActiveIndex(1)">></div>
+</div>

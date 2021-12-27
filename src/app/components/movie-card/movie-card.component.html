@@ -1,0 +1,23 @@
+<div class="movie-card" style="font-size: 20px">
+  <div class="movie-poster" [ngStyle]="{ opacity: overlay ? '0.5' : '1' }">
+    <img
+      [src]="searchResult?.Poster"
+      height="100%"
+      width="100%"
+      alt="Movie Poster "
+    />
+  </div>
+  <div
+    class="movie-title"
+    style="
+      display: flex;
+      flex-direction: column;
+      font-size: 28px;
+      margin: 8px 0;
+    "
+  >
+    {{ searchResult?.Title }}
+  </div>
+  <div class="year-release">Year of Release: {{ searchResult?.Year }}</div>
+  <div class="movie-type">Type: {{ searchResult?.Type }}</div>
+</div>

@@ -1,0 +1,31 @@
+<div
+  style="
+    min-height: 500px;
+    box-sizing: border-box;
+    padding: 24px;
+    border: 1px solid #8a8a8a;
+  "
+>
+  <span style="font-size: 24px">Results</span>
+  <div
+    class="movie-list"
+    style="
+      box-sizing: border-box;
+      padding: 16px;
+      display: flex;
+      flex-wrap: wrap;
+    "
+  >
+    <ng-container *ngFor="let item of searchResult">
+      <input
+        type="checkbox"
+        form
+        name="movie"
+        value="item.imdbID"
+        (change)="onMovieCheck(item)"
+        style="height: 24px; width: 24px"
+      />
+      <app-movie-card [searchResult]="item" [overlay]="false"></app-movie-card>
+    </ng-container>
+  </div>
+</div>

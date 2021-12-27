@@ -1,0 +1,16 @@
+.header-container {
+  height: 100px;
+  width: 100%;
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 16px;
+  align-items: center;
+}
+
+.search-box {
+  height: 40px;
+  width: 420px;
+  border-radius: 8px;
+}
